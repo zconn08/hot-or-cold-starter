@@ -15,6 +15,7 @@ $(document).ready(function(){
 	
 	var retrieveGuess = function(){
 		guess = $("#userGuess").val();
+		console.log(guess);
 	};
 
 	var provideFeedback = function(){
@@ -56,22 +57,15 @@ $(document).ready(function(){
 	$("#guessButton").click(function(){
 		retrieveGuess();
 		provideFeedback();
+		addGuess();
 	});
 	//Start game upon page load
-	newGame();
+	//newGame();
+
 	//Start game upon clicking on new game
 	$(".new").click(function(){
 		newGame();
 	});
-
-	//Append guessList with guess #
-	$("#guessButton").click(function(){
-		retrieveGuess();
-		addGuess();
-	});
-
-
-
 });
 
 
