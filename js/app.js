@@ -1,18 +1,20 @@
-var correctAnswer;
-var guess;
-var counter;
-
-var randomNumberGenerator = function(){
-	return Math.floor((Math.random()*100+1));
-};
-
-var newGame = function(){
-	correctAnswer = randomNumberGenerator();
-	//add here - clear guesses, reset counter
-};
-
 $(document).ready(function(){
 	
+	var correctAnswer;
+	var guess;
+	var counter;
+
+	var generateNumber = function(){
+		correctAnswer =  Math.floor((Math.random()*100+1));
+		console.log("The random number is " + correctAnswer);
+		return generateNumber;
+	};
+
+	var newGame = function(){
+	//add here - clear guesses, reset counter
+		generateNumber();
+	};
+
 	var retrieveGuess = function(){
 		guess = $("#userGuess").val();
 		console.log(guess);
@@ -60,7 +62,7 @@ $(document).ready(function(){
 		addGuess();
 	});
 	//Start game upon page load
-	//newGame();
+	newGame();
 
 	//Start game upon clicking on new game
 	$(".new").click(function(){
