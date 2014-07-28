@@ -8,6 +8,7 @@ var randomNumberGenerator = function(){
 
 var newGame = function(){
 	correctAnswer = randomNumberGenerator();
+	//add here - clear guesses, reset counter
 };
 
 $(document).ready(function(){
