@@ -26,7 +26,11 @@ $(document).ready(function(){
 	};
 
 	var provideFeedback = function(){
-		if (guess == correctAnswer) {
+		if (guess%1 !== 0) {
+			alert("Please enter an integer between 1 and 100!");
+		}
+		else {
+			if (guess == correctAnswer) {
 			console.log("Correct!");
 			$("#feedback").text("Correct!");
 		}
@@ -54,10 +58,17 @@ $(document).ready(function(){
 			console.log("Ice Cold");
 			$("#feedback").text("Ice Cold");
 		}
+		}
+
+		
 	};
 
 	var addGuess = function(){
-		$("#guessList").append("<li>" + guess + "</li>");
+		if (guess%1 !== 0) {
+		}
+		else{
+			$("#guessList").append("<li>" + guess + "</li>");
+		}
 	};
 
 	/*--- Display information modal box ---*/
@@ -80,8 +91,13 @@ $(document).ready(function(){
 	
 	//In
 	var trackGuess = function(){
+		if (guess%1 !== 0) {
+		}
+		else{
+
 		counter += 1;
 		$("#count").text(counter);
+		}
 	};
 
 	//Start game upon page load
