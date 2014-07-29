@@ -13,6 +13,11 @@ $(document).ready(function(){
 	var newGame = function(){
 	//add here - clear guesses, reset counter
 		generateNumber();
+		counter = 0;
+		$("#count").text(0);
+		$("#guessList").empty();
+		$("#feedback").text("Make your Guess!");
+		$("#userGuess").val("");
 	};
 
 	var retrieveGuess = function(){
@@ -21,28 +26,38 @@ $(document).ready(function(){
 	};
 
 	var provideFeedback = function(){
-		if (guess === correctAnswer) {
-			console.log("Correct");
+		if (guess == correctAnswer) {
+			console.log("Correct!");
+			$("#feedback").text("Correct!");
 		}
-		else if(guess - correctAnswer < 10){
+		else if(Math.abs(guess - correctAnswer) < 5){
+			console.log("On Fire!");
+			$("#feedback").text("On Fire!");
+		}
+		else if(Math.abs(guess - correctAnswer) < 10){
 			console.log("Very Hot");
+			$("#feedback").text("Very Hot");
 		}
-		else if(guess - correctAnswer < 20){
+		else if(Math.abs(guess - correctAnswer) < 20){
 			console.log("Hot");
+			$("#feedback").text("Hot");
 		}
-		else if(guess - correctAnswer < 30){
+		else if(Math.abs(guess - correctAnswer) < 30){
 			console.log("Warm");
+			$("#feedback").text("Warm");
 		}
-		else if(guess - correctAnswer < 40){
+		else if(Math.abs(guess - correctAnswer) < 40){
 			console.log("Cold");
+			$("#feedback").text("Cold");
 		}
 		else{
 			console.log("Ice Cold");
+			$("#feedback").text("Ice Cold");
 		}
 	};
 
 	var addGuess = function(){
-		$(".guessList").append("<li>" + guess + "<li>");
+		$("#guessList").append("<li>" + guess + "</li>");
 	};
 
 	/*--- Display information modal box ---*/
@@ -60,7 +75,15 @@ $(document).ready(function(){
 		retrieveGuess();
 		provideFeedback();
 		addGuess();
+		trackGuess();
 	});
+	
+	//In
+	var trackGuess = function(){
+		counter += 1;
+		$("#count").text(counter);
+	};
+
 	//Start game upon page load
 	newGame();
 
