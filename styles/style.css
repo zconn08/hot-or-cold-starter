@@ -319,3 +319,6 @@ ul.guessBox li {
 	margin: 0.2em;
 	color: #fff;
 }
+#guessButton {
+	text-align: center;
+}

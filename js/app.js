@@ -64,7 +64,7 @@ $(document).ready(function(){
 	};
 
 	var addGuess = function(){
-		if (guess%1 !== 0) {
+		if (guess%1 !== 0 || isNaN(guess)) {
 		}
 		else{
 			$("#guessList").append("<li>" + guess + "</li>");
